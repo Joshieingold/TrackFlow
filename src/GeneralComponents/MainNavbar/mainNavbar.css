@@ -47,12 +47,12 @@
     font-size: 18px;
     border-radius: 5px;
     transition: 0.8s;
-    border-bottom: 1px solid transparent;
+    border-bottom: 2px solid transparent;
     text-decoration: none;
 }
 .menu-content a:hover {
     color: white;
-    border-bottom: rgb(32, 184, 223) 1px solid;
+    border-bottom: rgb(32, 184, 223) 2px solid;
     transition: 0.8s;
     color: rgb(205, 250, 250);
 }
