@@ -12,15 +12,37 @@
 }
 .input-field {
     padding: 1%;
-    border-radius: 0.4rem;
+    border-radius: 0.3rem;
     border: 1px solid rgb(185, 185, 185);
 
 }
+
+.add-button {
+    height: 40px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;    
+    display: flex;
+    justify-self: center;
+    background-color: rgba(228, 228, 228, 0.208);
+    border: 1px solid rgb(185, 185, 185);
+    padding: 1%;
+    margin-top: 10px;
+    border-radius: 0.3rem;
+    width: 50%
+}
+.add-button:hover {
+    background-color: rgba(158, 229, 255, 0.76);
+    transition: 0.8s;
+    cursor: pointer;
+}
+
 .form-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 100%;
+    overflow-y: auto;
 }
 .text-manual-push {
     display: flex;
