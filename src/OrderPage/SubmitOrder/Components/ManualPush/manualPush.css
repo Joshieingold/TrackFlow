@@ -3,10 +3,10 @@
     text-align: center;
     padding: 4px;
     width: 100%;
-    height: 5%;
-    display: flex;
-    justify-content: center;
+    height: 100%;
     gap: 10px;
+    display: flex;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
 }
@@ -36,7 +36,35 @@
     transition: 0.8s;
     cursor: pointer;
 }
-
+.device-entry {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: larger;
+    font-weight: light;
+    width: 80%;
+    padding: 0px;
+    margin: 0px;
+}
+.device-entry .input-field {
+    width: 40%;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0.3rem;
+    border: 1px solid rgb(185, 185, 185);
+}
+.device-entry {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: larger;
+    font-weight: light;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
 .form-container {
     display: flex;
     flex-direction: column;
@@ -51,4 +79,18 @@
     text-align: center;
     font-size: larger;
     font-weight: light;
+}
+.submit-button {
+    height: 40px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;    
+    display: flex;
+    justify-self: center;
+    background-color: rgba(228, 228, 228, 0.208);
+    border: 1px solid rgb(185, 185, 185);
+    padding: 1%;
+    margin-top: 10px;
+    border-radius: 0.3rem;
+    width: 50%
 }
