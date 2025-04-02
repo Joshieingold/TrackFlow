@@ -7,7 +7,6 @@ const OrdersNavbar = () => {
             <Link className="menu-item">Order Statistics</Link>
             <Link className="menu-item">Submit Order</Link>
             <Link className="menu-item">Order History</Link>
-            <Link className="menu-item">Order Tracking</Link>
         </div>
     );
 }

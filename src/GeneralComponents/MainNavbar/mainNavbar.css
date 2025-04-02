@@ -40,6 +40,7 @@
     width: 100%;
     display: flex;
 }
+
 .menu-content {
     display: flex;
     align-items: center;
@@ -63,4 +64,7 @@
 .logo-content:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
   transition: 0.9s;
+  .logo-text {
+    color: rgb(167, 236, 251);
+  }
 }
