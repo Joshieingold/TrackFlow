@@ -1,0 +1,15 @@
+.onetothree-bubble-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+.small {
+    width: 20%;
+    height: 80vh;
+}
+.big {
+    width: 70%;
+    height: 80vh;
+}

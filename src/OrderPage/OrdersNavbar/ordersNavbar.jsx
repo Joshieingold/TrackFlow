@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const OrdersNavbar = () => {
     return (
         <div className="menu-content orders-navbar">
-            <Link className="menu-item">Order Statistics</Link>
-            <Link className="menu-item">Submit Order</Link>
+            <Link to="/OrderStatistics" className="menu-item">Order Statistics</Link>
+            <Link to="/SubmitOrder" className="menu-item">Submit Order</Link>
             <Link className="menu-item">Order History</Link>
         </div>
     );
