@@ -1,7 +1,7 @@
 import React from 'react';
 import { MainNavbar } from "../../GeneralComponents/MainNavbar/mainNavbar.jsx";
 import './orderStatistics.css'; // Import your CSS file for styling
-import { OrdersNavbar } from './OrdersNavbar/ordersNavbar.jsx';
+import { OrdersNavbar } from '../OrdersNavbar/ordersNavbar.jsx';
 
 const OrderStatisticsPage = () => {
   return (
