@@ -1,0 +1,9 @@
+.orders-navbar {
+    background-color: #001749a1;
+    width: 100vw;
+    color: black;;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+
+}

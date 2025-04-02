@@ -1,0 +1,46 @@
+
+.bubble {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: 100%;
+    padding: 0px;
+    background-color: #3f434798;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+.two-bubble-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    flex-direction: row;
+    width: 90vw;
+    height: 40vh;
+    gap: 20px;
+    padding: 0px;
+    margin: 0px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.one-bubble-container {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: row;
+    width: 95%;
+    justify-content: center;
+    height: 50vh;
+    padding: 0px;
+    margin: 0px;
+}
+.order-statistics-page {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    padding: 0px;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+}

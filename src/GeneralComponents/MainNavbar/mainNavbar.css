@@ -14,8 +14,8 @@
     cursor: pointer;
     color: white;
     font-size: 20px;
-    width: 22%;
-    justify-content: space-around;
+    width: 50%;
+    justify-content: center;
     transition: 0.8s;
     height: 100%;
 }
@@ -27,20 +27,24 @@
     height: 100%;
 }
 .icon {
-    width: 90%;
-    height: 100%;
-
-
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 0.8s;
 }
+.logo-text {
+    color: white;
+    transition: 0.8s;
+    width: 100%;
+    display: flex;
+}
 .menu-content {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 30%;
+    width: 50%;
 }
 .menu-content a {
     color: white;
