@@ -1,0 +1,90 @@
+/* General container for the entire component */
+.data-container {
+  display: flex;
+  justify-content: space-around; /* Position treemap on the left and stats on the right */
+  padding: 2%;
+  height: 90%;
+  flex-wrap: wrap; /* Allow wrapping in case the screen is smaller */
+  gap: 20px; /* Add gap between tree and stats */
+  align-items: flex-start; /* Align the items to the top */
+}
+
+/* The treemap container */
+.tree {
+  flex: 1; /* Allow it to grow and take available space */
+  max-width: 85%; /* Limit the max width */
+  border: 2px solid transparent;
+  border-radius: 0.8rem;
+  height: 90%;
+  box-sizing: border-box; /* Ensure padding and border don't affect layout */
+}
+
+/* Container for the bubbles (category stats) */
+.bubble-container-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 300px; /* Fixed width for the stats container */
+  padding: 15px;
+
+  border-radius: 10px;
+
+  box-sizing: border-box; /* Ensure padding doesn't affect layout */
+}
+
+/* Each individual bubble for stats */
+.bubble-baby {
+  background-color: rgba(36, 136, 243, 0.1); /* Light blue background */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px; /* Add space between each bubble */
+  height: auto; /* Let the height adjust to content */
+}
+
+/* Heading in each bubble */
+.bubble-baby h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Paragraphs inside each bubble */
+.bubble-baby p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* First paragraph with bold font */
+.bubble-baby p:first-child {
+  font-weight: bold;
+}
+
+/* Style for loading message */
+.data-container p {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #999;
+}
+
+/* Optional: Styling for h2 title */
+.chart-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.tooltip-container {
+    background-color: #0000008a;
+    color: white;
+    padding: 2%;
+    border-radius: 0.8rem;
+}
+.tooltip-container p {
+    color: white;
+    font-size: medium;
+}

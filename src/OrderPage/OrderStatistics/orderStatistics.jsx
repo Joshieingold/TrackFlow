@@ -3,8 +3,9 @@ import { MainNavbar } from "../../GeneralComponents/MainNavbar/mainNavbar.jsx";
 import './orderStatistics.css'; // Import your CSS file for styling
 import { OrdersNavbar } from '../OrdersNavbar/ordersNavbar.jsx';
 import { fetchOrdersData } from '../../GeneralComponents/Database/databaseFunctions.jsx';
-import OptChart from '../OrdersPerTechChart/optChart.jsx'; // Import your chart component
-
+import OptChart from './Components/OrdersPerTechChart/optChart.jsx'; // Import your chart component
+import DptChart from "./Components/DevicesPerTechChart/dptChart.jsx";
+import WaybillTreemap from './Components/OrdersTreeMap/OrdersTreeMap.jsx';
 const OrderStatisticsPage = () => {
   const [data, setData] = useState(null); // Store fetched data in state
   const [loading, setLoading] = useState(true); // Loading state
@@ -32,10 +33,15 @@ const OrderStatisticsPage = () => {
         <div className="bubble">
           {loading ? <p>Loading chart...</p> : <OptChart data={data} />}
         </div>
-        <div className="bubble">hi</div>
+        <div className="bubble">
+          {loading ? <p>Loading chart...</p> : <DptChart data={data} />}
+        </div>
       </div>
       <div className='one-bubble-container'>
-        <div className="bubble">hi</div>  
+        <div className="bubble">
+          <h2 className='titlecard-text'>Order Visualization</h2>
+        {loading ? <p>Loading chart...</p> : <WaybillTreemap data={data} />}
+        </div>  
       </div>
     </div>
   );

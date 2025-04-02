@@ -12,7 +12,7 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, ChartTooltip, Legend);
 
-const OptChart = ({ data }) => { // Destructure data properly
+const OptChart = ({ data }) => { 
   const [chartData, setChartData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({

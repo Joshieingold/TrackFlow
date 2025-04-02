@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage/home.jsx";
 import OrderStatisticsPage from './OrderPage/OrderStatistics/orderStatistics.jsx';
+import "./GeneralComponents/General.css";
 function App() {
   return (
     <>
