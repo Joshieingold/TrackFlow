@@ -43,7 +43,6 @@ const OptChart = ({ data }) => { // Destructure data properly
       techOrders[techName].TotalOrders += 1;
     });
 
-    console.log("Processed Tech Orders:", techOrders); // Debugging step
 
     if (Object.keys(techOrders).length > 0) {
       let filteredOrders = Object.entries(techOrders)

@@ -13,10 +13,9 @@ const OrderStatisticsPage = () => {
     const fetchData = async () => {
       try {
         const ordersData = await fetchOrdersData(); // Wait for data
-        console.log("Fetched Data:", ordersData); // Debugging
         setData(ordersData);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching data:", error); // Handle errors
       } finally {
         setLoading(false); // Stop loading once done
       }
