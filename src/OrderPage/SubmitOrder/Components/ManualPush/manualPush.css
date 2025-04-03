@@ -1,5 +1,4 @@
 .form-container label {
-
     text-align: center;
     padding: 4px;
     width: 100%;
@@ -9,13 +8,19 @@
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
+
 .input-field {
     padding: 1%;
     border-radius: 0.3rem;
     border: 1px solid rgb(185, 185, 185);
-
+    width: 100%;
+    box-sizing: border-box;
 }
+
+/* Removed duplicate .remove-button definition */
 
 .add-button {
     height: 40px;
@@ -29,34 +34,19 @@
     padding: 1%;
     margin-top: 10px;
     border-radius: 0.3rem;
-    width: 50%
+    width: 100%;
+    box-sizing: border-box;
 }
+
 .add-button:hover {
     background-color: rgba(158, 229, 255, 0.76);
     transition: 0.8s;
     cursor: pointer;
 }
+
 .device-entry {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: larger;
-    font-weight: light;
-    width: 80%;
-    padding: 0px;
-    margin: 0px;
-}
-.device-entry .input-field {
-    width: 40%;
-    padding: 0px;
-    margin: 0px;
-    border-radius: 0.3rem;
-    border: 1px solid rgb(185, 185, 185);
-}
-.device-entry {
-    display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     font-size: larger;
@@ -64,14 +54,19 @@
     width: 100%;
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
+    gap: 10px; /* Add gap for better spacing */
+
 }
-.form-container {
-    display: flex;
-    flex-direction: column;
+
+.device-entry .input-field {
+/* Removed duplicate .device-entry definition */
     justify-content: space-around;
     height: 100%;
     overflow-y: auto;
+    box-sizing: border-box;
 }
+
 .text-manual-push {
     display: flex;
     justify-content: center;
@@ -79,6 +74,7 @@
     text-align: center;
     font-size: larger;
     font-weight: light;
+    box-sizing: border-box;
 }
 .submit-button {
     height: 40px;
@@ -92,5 +88,117 @@
     padding: 1%;
     margin-top: 10px;
     border-radius: 0.3rem;
-    width: 50%
+    width: fit-content; /* Adjust width to fit content */
+    padding-left: 20px; /* Add padding for better appearance */
+    padding-right: 20px;
+    box-sizing: border-box;
+    cursor: pointer; /* Add pointer cursor for better UX */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto;
+    margin-bottom: 10px;;
+}
+
+.remove-button {
+    text-align: center;
+    justify-content: center;
+    align-items: center;    
+    display: flex;
+    background-color: rgba(228, 228, 228, 0.208);
+    border: 1px solid rgb(185, 185, 185);
+    padding: 1%;
+    border-radius: 0.3rem;
+    width: 2rem;
+    height: 2rem;
+    box-sizing: border-box;
+}
+.remove-button:hover {
+    background-color: rgba(158, 229, 255, 0.76);
+    transition: 0.8s;
+    cursor: pointer;
+}
+
+.add-button, .submit-button {
+    height: 40px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;    
+    display: flex;
+    background-color: rgba(228, 228, 228, 0.208);
+    border: 1px solid rgb(185, 185, 185);
+    padding: 1%;
+    margin-top: 10px;
+    border-radius: 0.3rem;
+    width: fit-content; /* Adjust width to fit content */
+    padding-left: 20px; /* Add padding for better appearance */
+    padding-right: 20px;
+    box-sizing: border-box;
+    cursor: pointer; /* Add pointer cursor for better UX */
+}
+
+.add-button:hover, .submit-button:hover {
+    background-color: rgba(158, 229, 255, 0.76);
+    transition: 0.8s;
+}
+
+.device-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-size: larger;
+    font-weight: light;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.device-entry .input-field {
+    flex: 1; /* Allow input to take up available space */
+    height: 2rem;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0.3rem;
+    border: 1px solid rgb(185, 185, 185);
+    box-sizing: border-box;
+}
+.device-entry-container {
+    width: 95%; /* Reduce width to avoid touching the sides */
+    margin: 0 auto; /* Center the container */
+    max-height: 300px; /* Set a fixed height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    box-sizing: border-box;
+    padding: 10px; /* Add padding for better spacing */
+}
+
+.device-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-size: larger;
+    font-weight: light;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    gap: 10px; /* Add gap for better spacing */
+}
+
+.device-entry .input-field {
+    flex: 1; /* Allow input to take up available space */
+    height: 2rem;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0.3rem;
+    border: 1px solid rgb(185, 185, 185);
+    box-sizing: border-box;
+}
+.devices-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Add gap for better spacing */
+    margin-bottom: 20px; /* Add margin for better spacing */
 }

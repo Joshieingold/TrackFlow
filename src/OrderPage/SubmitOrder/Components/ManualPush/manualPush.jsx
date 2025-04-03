@@ -107,31 +107,45 @@ export const ManualPush = ({ techData = [] }) => { // ✅ Default to empty array
 
     return (
         <form onSubmit={handleSubmit} className="form-container">
-            <label>
-                Tech Name:
-                <input list="tech-options" type="text" name="techname" value={formData.techname} onChange={handleTechChange} className="input-field" />
-                <datalist id="tech-options">
-                    {techOptions.map((techName, idx) => (
-                        <option key={idx} value={techName} />
-                    ))}
-                </datalist>
-            </label>
+            <div className="form-group">
+                <label>
+                    Tech Name:
+                    <input
+                        list="tech-options"
+                        type="text"
+                        name="techname"
+                        value={formData.techname}
+                        onChange={handleTechChange}
+                        className="input-field"
+                    />
+                    <datalist id="tech-options">
+                        {techOptions.map((techName, idx) => (
+                            <option key={idx} value={techName} />
+                        ))}
+                    </datalist>
+                </label>
+            </div>
+
             {[
                 { label: "Location", name: "Location", type: "text" },
                 { label: "Waybill", name: "waybill", type: "text" },
                 { label: "Date Completed", name: "DateCompleted", type: "date" },
-                
                 { label: "Order ID", name: "OrderID", type: "text" },
-                
-                { label: "Boxes", name: "Boxes", type: "number" }
+                { label: "Boxes", name: "Boxes", type: "number" },
             ].map(({ label, name, type }) => (
-                <label key={name}>
-                    {label}:
-                    <input type={type} name={name} value={formData[name]} onChange={handleChange} className="input-field" />
-                </label>
+                <div className="form-group" key={name}>
+                    <label>
+                        {label}:
+                        <input
+                            type={type}
+                            name={name}
+                            value={formData[name]}
+                            onChange={handleChange}
+                            className="input-field"
+                        />
+                    </label>
+                </div>
             ))}
-
-            
 
             <div className="devices-container">
                 <p className="text-manual-push">Devices:</p>
@@ -157,7 +171,11 @@ export const ManualPush = ({ techData = [] }) => { // ✅ Default to empty array
                             onChange={(e) => handleDeviceChange(index, "quantity", Number(e.target.value) || 0)}
                             className="input-field"
                         />
-                        <button type="button" onClick={() => removeDevice(index)} className="remove-button">
+                        <button
+                            type="button"
+                            onClick={() => removeDevice(index)}
+                            className="remove-button"
+                        >
                             -
                         </button>
                     </div>
@@ -175,4 +193,4 @@ export const ManualPush = ({ techData = [] }) => { // ✅ Default to empty array
             </button>
         </form>
     );
-};
+}
