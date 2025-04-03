@@ -47,7 +47,7 @@ export const fetchOrdersData = async () => {
 };
 export const fetchTempOrdersData = async () => {
     try {
-        const deliveryRef = collection(db, "TempDatabase");
+        const deliveryRef = collection(db, "TempDelivery");
         const querySnapshot = await getDocs(query(deliveryRef));
         if (querySnapshot.empty) {
             console.log("No matching documents.");
@@ -110,6 +110,32 @@ export const fetchTechData = async () => {
             });
         });
         return techData;
+    }
+    catch (error) {
+        console.error("Error fetching orders data:", error);
+    }
+};
+export const fetchDeviceData = async () => {
+    try {
+        const deviceRef = collection(db, "DeviceDatabase");
+        const querySnapshot = await getDocs(query(deviceRef));
+        if (querySnapshot.empty) {
+            console.log("No matching documents.");
+            return;
+        }
+        let deviceData = [];
+        querySnapshot.forEach((doc) => {
+            const device = doc.data();
+            const deviceName = device.Name || "Unknown";
+            const fullBox = device.FullBox || 10;
+            
+
+            deviceData.push({
+                Name : deviceName || "Unknown",
+                FullBox : fullBox || 10,
+            });
+        });
+        return deviceData;
     }
     catch (error) {
         console.error("Error fetching orders data:", error);
