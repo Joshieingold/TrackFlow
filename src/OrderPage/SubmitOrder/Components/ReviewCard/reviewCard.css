@@ -1,0 +1,48 @@
+.review-card {
+    width: 100%;
+    
+
+}
+.review-card input {
+    height: 100%;
+    padding: 1%;
+    border-radius: 0.3rem;
+    border: 1px solid rgb(185, 185, 185);
+
+    box-sizing: border-box;
+}
+.input-text-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+}
+.box-skid-container {
+    display: flex;
+    height: 20%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.box-skid-container input {
+    height: 50%;
+    padding: 1%;
+    border-radius: 0.3rem;
+    border: 1px solid rgb(185, 185, 185);
+    box-sizing: border-box;
+}
+.device-showcase-container {
+    width: 70%
+}
+.text-detail-container {
+    width: 30%;
+}
+.order-detail-container {
+    display: flex;
+    background-color: aqua;
+    margin-bottom: 5px;
+    padding: 3%;
+    justify-self: center;
+    border-radius: 0.8rem;
+    width: 90%
+}

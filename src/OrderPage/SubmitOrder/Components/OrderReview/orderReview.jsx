@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ReviewCard } from "../ReviewCard/reviewCard";
 
 const OrderReview = ({ TempDatabaseData, techData }) => {
     const [orders, setOrders] = useState([]);
@@ -10,7 +11,7 @@ const OrderReview = ({ TempDatabaseData, techData }) => {
         const techs = {};
         const names = [];
         techData.forEach((tech) => {
-            const name = tech.Technician|| "Unknown";
+            const name = tech.Technician || "Unknown";
             const location = tech.Location || "Unknown";
             techs[name] = location;
             names.push(name);
@@ -20,19 +21,42 @@ const OrderReview = ({ TempDatabaseData, techData }) => {
 
         // Set orders from TempDatabaseData
         setOrders(TempDatabaseData);
+        
     }, [TempDatabaseData, techData]);
+
+    const handleEdit = (index, updatedOrder) => {
+        setOrders((prevOrders) => {
+            const newOrders = [...prevOrders];
+            newOrders[index] = updatedOrder;
+            return newOrders;
+        });
+    };
 
     return (
         <div>
             {orders.map((order, index) => (
-                <div key={index}>
-                    <p>Order ID: {order.id}</p>
-                    <p>Tech Name: {order.Technician}</p>
-                    <p>Location: {order.Location}</p>
-                    {/* Add more fields as needed */}
-                </div>
+                <ReviewCard
+                    key={index}
+                    orderId={order.OrderID}
+                    name={order.Technician}
+                    location={order.Location}
+                    waybill={order.Waybill || "N/A"}
+                    devices={order.Devices || {}}
+                    boxes={order.Boxes || 0}
+                    skids={order.Skids || 0}
+                    onEdit={() => {
+                        const updatedOrder = { ...order, name: prompt("Edit Name", order.Technician) || order.Technician };
+                        handleEdit(index, updatedOrder);
+                    }}
+                    
+                    
+                />
+                
             ))}
+            
         </div>
     );
 };
+
 export default OrderReview;
+
