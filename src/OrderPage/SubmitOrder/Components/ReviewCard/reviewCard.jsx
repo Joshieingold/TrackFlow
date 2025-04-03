@@ -34,7 +34,7 @@ export const ReviewCard = ({ orderId, name, location, waybill, devices, boxes, s
             <div className="order-detail-container">
                 <div className="text-detail-container">
                     <div className="input-text-container">
-                    <p>OrderID: {editableOrder.orderId}</p>
+                    <p>OrderID:</p>
                     <input name="orderId" value ={editableOrder.orderId} onChange={handleChange} />
                     </div>
                     <div className="input-text-container">
@@ -42,7 +42,7 @@ export const ReviewCard = ({ orderId, name, location, waybill, devices, boxes, s
                         <input name="name" value={editableOrder.name} onChange={handleChange} />
                     </div>
                     <div className="input-text-container">
-                        <p>Order Location</p>
+                        <p>Order Location:</p>
                         <input name="location" value={editableOrder.location} onChange={handleChange} />
                     </div>
                     <div className="input-text-container">
@@ -54,7 +54,7 @@ export const ReviewCard = ({ orderId, name, location, waybill, devices, boxes, s
                     <h3>Devices:</h3>
                     <div className="device-showcase">
                         {Object.entries(editableOrder.devices).map(([device, qty]) => (
-                            <div key={device}>
+                            <div className="device-input" key={device}>
                                 <span>{device}: </span>
                                 <input
                                     type="number"
@@ -75,6 +75,10 @@ export const ReviewCard = ({ orderId, name, location, waybill, devices, boxes, s
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="button-container">
+            <button className="submit-button">Remove</button>
+            <button className="submit-button">Submit Order</button>
             </div>
             
             

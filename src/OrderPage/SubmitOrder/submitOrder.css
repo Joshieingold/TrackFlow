@@ -8,11 +8,13 @@
 }
 .small {
     width: 25%;
-    height: 80vh;
+    height: 75vh;
     padding: 5px;
-
+    overflow-y: auto;
 }
 .big {
     width: 65%;
     height: 80vh;
+    overflow-y: auto;
+    
 }

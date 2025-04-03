@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ReviewCard } from "../ReviewCard/reviewCard";
+import "./orderReview.css";
 
 const OrderReview = ({ TempDatabaseData, techData }) => {
     const [orders, setOrders] = useState([]);
@@ -33,7 +34,7 @@ const OrderReview = ({ TempDatabaseData, techData }) => {
     };
 
     return (
-        <div>
+        <div className="order-review-container">
             {orders.map((order, index) => (
                 <ReviewCard
                     key={index}

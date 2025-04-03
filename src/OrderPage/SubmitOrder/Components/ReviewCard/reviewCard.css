@@ -1,8 +1,15 @@
 .review-card {
-    width: 100%;
-    
-
+    width: 90%;
+    margin-bottom: 15px;
+    background-color: white;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    border-radius: 0.8rem;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
 }
+
 .review-card input {
     height: 100%;
     padding: 1%;
@@ -32,17 +39,31 @@
     box-sizing: border-box;
 }
 .device-showcase-container {
-    width: 70%
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 .text-detail-container {
     width: 30%;
 }
 .order-detail-container {
     display: flex;
-    background-color: aqua;
-    margin-bottom: 5px;
-    padding: 3%;
+
     justify-self: center;
-    border-radius: 0.8rem;
-    width: 90%
+    
+    width: 90%;
+    align-items: center;
+}
+.device-input {
+    margin-bottom: 5px;
+}
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.remove-order-button {
+    
 }
