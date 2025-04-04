@@ -95,7 +95,7 @@ export const OrderTable = ({ data }) => {
         </div>
       </div>
 
-      <div className="data-table" style={{ width: "100%", overflowX: "auto" }}>
+      <div className="data-table" style={{ width: "100%", overflowX: "auto", height: "80%" }}>
         <DataTable
           columns={columns}
           data={filteredData}

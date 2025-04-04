@@ -1,9 +1,15 @@
 .order-history-page{
     .one-bubble-container {
-        height: 70vh;
+        height: 60vh;
+        justify-content: center;
+        justify-self: center;
+        width: 90vw;
+
     }
     .bubble {
         height: 100%;
+        width: 100%;
         overflow-y: auto;
+        padding: 2%;
     }
 }
