@@ -9,7 +9,8 @@ const MainNavbar = () => {
                 <div className="icon-container">
                     <img className="icon" src={Logo} alt="Logo" />
                 </div>
-                <h2 className="logo-text">Rogers TrackFlow</h2>
+                <h2 className="logo-text">Trackflow</h2>
+                
             </div>
             <div className="menu-content">
                 <Link to="/Home" className="menu-item">Home</Link>

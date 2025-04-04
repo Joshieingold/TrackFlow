@@ -5,6 +5,7 @@ import HomePage from "./HomePage/home.jsx";
 import OrderStatisticsPage from './OrderPage/OrderStatistics/orderStatistics.jsx';
 import SubmitOrder from './OrderPage/SubmitOrder/submitOrder.jsx';
 import "./GeneralComponents/General.css";
+import OrderHistory from './OrderPage/OrderHistory/orderHistory.jsx';
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
           <Route path="/SubmitOrder" element={<SubmitOrder/>} />
           <Route path="/ContractorStatistics" element={"ContractorStatisticsPage"} />
           <Route path="/ContractorOverview" element={"ContractorOverviewPage"} />
+          <Route path="/OrderHistory" element={<OrderHistory/>}/>
         </Routes>
       </Router> 
     </>

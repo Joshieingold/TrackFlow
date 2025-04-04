@@ -45,6 +45,7 @@ const OrderReview = ({ TempDatabaseData, techData }) => {
                     devices={order.Devices || {}}
                     boxes={order.Boxes || 0}
                     skids={order.Skids || 0}
+                    date={order.date || Date()}
                     onEdit={() => {
                         const updatedOrder = { ...order, name: prompt("Edit Name", order.Technician) || order.Technician };
                         handleEdit(index, updatedOrder);

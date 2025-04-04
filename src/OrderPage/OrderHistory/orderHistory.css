@@ -1,0 +1,9 @@
+.order-history-page{
+    .one-bubble-container {
+        height: 70vh;
+    }
+    .bubble {
+        height: 100%;
+        overflow-y: auto;
+    }
+}

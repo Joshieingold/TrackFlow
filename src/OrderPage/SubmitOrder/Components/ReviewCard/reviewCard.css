@@ -4,10 +4,11 @@
     background-color: white;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
     border-radius: 0.8rem;
-    padding: 3%;
+
     display: flex;
     flex-direction: column;
     justify-self: center;
+    justify-content: space-between;
 }
 
 .review-card input {
@@ -50,7 +51,7 @@
 }
 .order-detail-container {
     display: flex;
-
+    padding: 3%;
     justify-self: center;
     
     width: 90%;
@@ -63,4 +64,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.card-header {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: blue;
+    height: 10%;
+    box-sizing: border-box;
+
+}
+.review-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden; /* ensures header corners match */
+    background-color: white;
+}
+
+.review-header {
+    background-color: #102b47; /* or any shade of blue you prefer */
+    color: white;
+
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #0056b3;
 }

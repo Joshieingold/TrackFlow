@@ -1,7 +1,7 @@
 import { endOfWeek, format, startOfWeek, eachDayOfInterval, isWithinInterval } from "date-fns";
 import { collection, getDocs, query, where, orderBy, limit } from "firebase/firestore";
 import { db } from "./firebase"; // Firestore instance
-
+import { Timestamp, addDoc } from "firebase/firestore";
 
 export const fetchOrdersData = async () => {
     try {
@@ -139,5 +139,30 @@ export const fetchDeviceData = async () => {
     }
     catch (error) {
         console.error("Error fetching orders data:", error);
+    }
+};
+export const sendOrderData = async (order) => {
+    try {
+        const deliveryRef = collection(db, "DeliveryTracker");
+
+        // Construct the order object in the expected Firestore format
+        const payload = {
+            Boxes: order.Boxes || 1,
+            DateCompleted: order.Date instanceof Date ? Timestamp.fromDate(order.Date) : Timestamp.fromDate(new Date()),
+            Weight: order.Weight || 0,
+            Location: order.Location || "Unknown",
+            ID: order.OrderID || "Unknown",
+            Skids: order.Skids || 1/24,
+            TechName: order.Technician || "Unknown",
+            Waybill: order.Waybill || "Unknown",
+            Devices: order.Devices || {},
+        };
+
+        const docRef = await addDoc(deliveryRef, payload);
+        console.log("Order successfully added with ID:", docRef.id);
+        return docRef.id;
+    } catch (error) {
+        console.error("Error adding order to database:", error);
+        throw error;
     }
 };
