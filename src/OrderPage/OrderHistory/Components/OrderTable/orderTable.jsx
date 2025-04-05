@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DataTable from "react-data-table-component";
 import "./orderTable.css";
+
 export const OrderTable = ({ data }) => {
   const [filterText, setFilterText] = useState("");
   const [fromDate, setFromDate] = useState("");
@@ -21,7 +22,7 @@ export const OrderTable = ({ data }) => {
       );
     })
     .filter(
-      (item) => locationFilter === "All" || item.Location === locationFilter
+      (item) => locationFilter === "All" || (item.Location).includes(locationFilter) 
     );
 
   const columns = [
@@ -47,26 +48,17 @@ export const OrderTable = ({ data }) => {
   ];
 
   return (
-    <div style={{ padding: "20px", width: "100%", height: "100%" }}>
+    <div className="order-table-main-container">
       <div className="search-customization-container">
-        <div className="date-container">
+        <div className="filter-option">
           <p>Search Waybill:</p>
-          <input
-            type="text"
-            placeholder="Search Waybill..."
-            value={filterText}
-            onChange={(e) => setFilterText(e.target.value)}
-            className="text-input"
-          />
+          <input type="text" placeholder="Search Waybill..." value={filterText} onChange={(e) => setFilterText(e.target.value)} className="text-input" />
         </div>
 
-        <div className="date-container">
+        <div className="filter-option">
           <p>Filter by Location:</p>
           <select
-            value={locationFilter}
-            onChange={(e) => setLocationFilter(e.target.value)}
-            className="text-input"
-          >
+            value={locationFilter} onChange={(e) => setLocationFilter(e.target.value)} className="text-input" >
             <option value="All">All</option>
             <option value="Saint John">Saint John</option>
             <option value="Moncton">Moncton</option>
@@ -75,41 +67,20 @@ export const OrderTable = ({ data }) => {
           </select>
         </div>
 
-        <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
-          <div className="date-container">
+        <div className="date-container"> 
+          <div className="filter-option">
             <p>From Date:</p>
-            <input
-              type="date"
-              value={fromDate}
-              onChange={(e) => setFromDate(e.target.value)}
-            />
+            <input type="date" value={fromDate} onChange={(e) => setFromDate(e.target.value)} />
           </div>
-          <div className="date-container">
+          <div className="filter-option">
             <p>To Date:</p>
-            <input
-              type="date"
-              value={toDate}
-              onChange={(e) => setToDate(e.target.value)}
-            />
+            <input type="date" value={toDate} onChange={(e) => setToDate(e.target.value)} />
           </div>
         </div>
       </div>
 
-      <div className="data-table" style={{ width: "100%", overflowX: "auto", height: "80%" }}>
-        <DataTable
-          columns={columns}
-          data={filteredData}
-          pagination
-          highlightOnHover
-          striped
-          customStyles={{
-            table: {
-              style: {
-                width: "100%",
-              },
-            },
-          }}
-        />
+      <div className="data-table" >
+        <DataTable columns={columns} data={filteredData} pagination highlightOnHover striped className="custom-data-table" />
       </div>
     </div>
   );

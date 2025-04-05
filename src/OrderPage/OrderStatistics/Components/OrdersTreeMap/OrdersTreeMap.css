@@ -35,10 +35,10 @@
 
 /* Each individual bubble for stats */
 .bubble-baby {
-  background-color: rgba(36, 136, 243, 0.1); /* Light blue background */
+  background-color: rgb(255, 255, 255); /* Light blue background */
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   margin-bottom: 15px; /* Add space between each bubble */
   height: auto; /* Let the height adjust to content */
 }

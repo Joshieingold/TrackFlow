@@ -1,0 +1,40 @@
+.logo-content:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+    transition: 0.9s;
+    .logo-text {
+      color: rgb(167, 236, 251);
+    }
+  }
+  .logo-content {
+    
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    width: 50%;
+    justify-content: center;
+    transition: 0.8s;
+    height: 100%;
+}
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+}
+.icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.8s;
+}
+.logo-text {
+    color: white;
+    transition: 0.8s;
+    width: 100%;
+    display: flex;
+}

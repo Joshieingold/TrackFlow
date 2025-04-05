@@ -39,7 +39,7 @@ const OrderStatisticsPage = () => {
       </div>
       <div className='one-bubble-container'>
         <div className="bubble">
-          <h2 className='titlecard-text'>Order Visualization</h2>
+          <h2 className='title-text'>Order Visualization</h2>
         {loading ? <p>Loading chart...</p> : <WaybillTreemap data={data} />}
         </div>  
       </div>

@@ -7,7 +7,8 @@
     min-height:fit-content;
     padding: 0px;
     background-color: #3f434798;
-    justify-content: center;
+    justify-content: space-between ;
+
     background-color: white;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
     border-radius: 10px;
@@ -40,10 +41,24 @@
     display: flex;
     flex-direction: column;
 
-
     padding: 0px;
     margin-bottom: 10vh;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+}
+.title-text {
+    font-weight: 600;
+    background-color: #001529;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 10%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }

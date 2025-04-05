@@ -30,7 +30,7 @@ const OrderHistory = () => {
         <OrdersNavbar/>
         <div className="one-bubble-container">
             <div className="bubble">
-                <h1>Order History</h1>
+                <h1 className="title-text">Order History</h1>
                 <OrderTable data={data}/>
             </div>
         </div>

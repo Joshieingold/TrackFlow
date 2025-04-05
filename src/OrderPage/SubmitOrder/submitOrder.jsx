@@ -31,11 +31,11 @@ const SubmitOrder = () => {
             <OrdersNavbar />
             <div className="onetothree-bubble-container">
                 <div className="bubble small">
-                    <h3>Manual Submission</h3>
+                    <h3 className="title-text">Manual Submission</h3>
                     <ManualPush />
                 </div>
                 <div className="bubble big">
-                    <h3>Order Review</h3>
+                    <h2 className="title-text">Order Review</h2>
                     {techData && orderData ? (
                         <OrderReview techData={techData} TempDatabaseData={orderData} />
                     ) : (
