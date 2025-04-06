@@ -53,6 +53,11 @@ input {
     background-color: #005ec2;
     color: white;
     border: none;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
     border-radius: 100px; 
     height: 60px;
     width: 70%;

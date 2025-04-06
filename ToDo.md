@@ -1,7 +1,7 @@
 # Implementations:
     # Login Page:
         [x] Make the login page.
-        [ ] Make the login page actually work
+        [x] Make the login page actually work
     # Order Page:
         [ ] Make the Temperary Database function properly
             [ ] Have Send and Delete remove the data from the temp database.
