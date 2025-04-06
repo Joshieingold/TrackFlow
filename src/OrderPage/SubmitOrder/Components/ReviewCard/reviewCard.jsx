@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./reviewCard.css";
 import { sendOrderData } from "../../../../GeneralComponents/Database/databaseFunctions";
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, deleteDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../../../GeneralComponents/Database/firebase";
 
 export const ReviewCard = ({
@@ -57,26 +57,60 @@ export const ReviewCard = ({
             Skids: Number(editableOrder.skids),
             Weight: 0,
         };
-
+    
         try {
-            await sendOrderData(orderToSend);
-            await deleteDoc(doc(db, "TempDelivery", editableOrder.orderId));
-            alert(`Order ${editableOrder.orderId} submitted and removed from TempDelivery!`);
-            if (onRemove) onRemove(editableOrder.orderId);
+           
+    
+            // Query the TempDelivery collection to find the document with the matching orderId
+            const q = query(collection(db, "TempDelivery"), where("OrderID", "==", editableOrder.orderId));
+            const querySnapshot = await getDocs(q);
+    
+            if (!querySnapshot.empty) {
+                // If we found the document, delete it
+                const docRef = querySnapshot.docs[0].ref; // Get the reference to the document
+                 // Send the order data first
+                await sendOrderData(orderToSend);
+                await deleteDoc(docRef);
+                alert(`Order ${editableOrder.orderId} submitted and removed from TempDelivery!`);
+    
+                // Optional: Call onRemove callback to remove the card from the UI
+                if (onRemove) onRemove(editableOrder.orderId);
+            } else {
+                alert("Order not found in TempDelivery.");
+            }
         } catch (err) {
             console.error("Failed to send order:", err);
             alert("Error submitting order. Check console for details.");
         }
     };
+    
 
     const handleRemove = async () => {
         const confirm = window.confirm("Are you sure you want to remove this order?");
         if (!confirm) return;
 
         try {
-            await deleteDoc(doc(db, "TempDelivery", editableOrder.orderId));
-            alert(`Order ${editableOrder.orderId} removed from TempDelivery.`);
-            if (onRemove) onRemove(editableOrder.orderId);
+            // Query to find the document by orderId
+            const q = query(
+                collection(db, "TempDelivery"), // Collection where orders are stored
+                where("OrderID", "==", editableOrder.orderId) // Searching by orderId field
+            );
+
+            const querySnapshot = await getDocs(q);
+
+            if (!querySnapshot.empty) {
+                // If document is found, delete it
+                querySnapshot.forEach(async (docSnap) => {
+                    await deleteDoc(doc(db, "TempDelivery", docSnap.id)); // Using docSnap.id to delete the document
+                    console.log(`Deleted document with orderId ${editableOrder.orderId}`);
+                });
+
+                alert(`Order ${editableOrder.orderId} removed from TempDelivery.`);
+                if (onRemove) onRemove(editableOrder.orderId); // Trigger onRemove callback
+            } else {
+                console.warn("No document found with orderId:", editableOrder.orderId);
+                alert("No matching order found for removal.");
+            }
         } catch (err) {
             console.error("Failed to delete order:", err);
             alert("Error removing order. Check console for details.");

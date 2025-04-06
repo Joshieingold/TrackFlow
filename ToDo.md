@@ -4,8 +4,8 @@
         [x] Make the login page actually work
     # Order Page:
         [ ] Make the Temperary Database function properly
-            [ ] Have Send and Delete remove the data from the temp database.
-            [ ] Have send add the data to the real database.
+            [x] Have Send and Delete remove the data from the temp database.
+            [x] Have send add the data to the real database.
             [ ] Have auto fill for devices and technician alongside address
         [ ] Have the Manual Push Component Work with auto fill.  
         [x] Have the stats be filterable by dates.
@@ -14,5 +14,6 @@
         [x] Need to make a footer
 
 # Fixes:
-
-
+[ ] Devices do not get manually pushed properly at all
+[ ] Tech name does not get manually pushed properly
+[ ] Need to center the remove button in order review.

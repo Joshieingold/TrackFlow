@@ -50,10 +50,7 @@ const OrderReview = ({ TempDatabaseData, techData }) => {
                         const updatedOrder = { ...order, name: prompt("Edit Name", order.Technician) || order.Technician };
                         handleEdit(index, updatedOrder);
                     }}
-                    
-                    
                 />
-                
             ))}
             
         </div>

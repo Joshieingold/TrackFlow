@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 import { db } from "../../../../GeneralComponents/Database/firebase"; // Ensure your Firebase config is imported
 import "./manualPush.css";
 
@@ -98,11 +98,26 @@ export const ManualPush = ({ techData = [] }) => { // ✅ Default to empty array
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form Submitted", { ...formData, Skids: skids });
-        setFormData(initialFormData);
-        setSkids(0);
+
+        try {
+            // Push to Firestore
+            const docRef = await addDoc(collection(db, "TempDelivery"), {
+                ...formData,
+                Skids: skids,
+                timestamp: new Date(),
+            });
+
+            console.log("Form Submitted and Document added with ID:", docRef.id);
+
+            // Reset form after submission
+            setFormData(initialFormData);
+            setSkids(0);
+
+        } catch (error) {
+            console.error("Error adding document:", error);
+        }
     };
 
     return (
@@ -126,13 +141,11 @@ export const ManualPush = ({ techData = [] }) => { // ✅ Default to empty array
                 </label>
             </div>
 
-            {[
-                { label: "Location", name: "Location", type: "text" },
-                { label: "Waybill", name: "waybill", type: "text" },
-                { label: "Date Completed", name: "DateCompleted", type: "date" },
-                { label: "Order ID", name: "OrderID", type: "text" },
-                { label: "Boxes", name: "Boxes", type: "number" },
-            ].map(({ label, name, type }) => (
+            {[{ label: "Location", name: "Location", type: "text" },
+              { label: "Waybill", name: "waybill", type: "text" },
+              { label: "Date Completed", name: "DateCompleted", type: "date" },
+              { label: "Order ID", name: "OrderID", type: "text" },
+              { label: "Boxes", name: "Boxes", type: "number" }].map(({ label, name, type }) => (
                 <div className="form-group" key={name}>
                     <label>
                         {label}:
@@ -193,4 +206,4 @@ export const ManualPush = ({ techData = [] }) => { // ✅ Default to empty array
             </button>
         </form>
     );
-}
+};

@@ -9,7 +9,8 @@ import { Footer } from "../../GeneralComponents/Footer/footer";
 
 const SubmitOrder = () => {
     const [techData, setTechData] = useState(null);
-    const [orderData, setOrderData] = useState(null);
+    const [orderData, setOrderData] = useState([]); // Default to an empty array
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -17,9 +18,11 @@ const SubmitOrder = () => {
                 const techDataResponse = await fetchTechData();
                 const orderDataResponse = await fetchTempOrdersData();
                 setTechData(techDataResponse);
-                setOrderData(orderDataResponse);
+                setOrderData(orderDataResponse || []); // Ensure orderData is always an array
+                setLoading(false);
             } catch (error) {
                 console.error("Error fetching data:", error);
+                setLoading(false);
             }
         };
 
@@ -37,10 +40,14 @@ const SubmitOrder = () => {
                 </div>
                 <div className="bubble big">
                     <h2 className="title-text">Order Review</h2>
-                    {techData && orderData ? (
-                        <OrderReview techData={techData} TempDatabaseData={orderData} />
+                    {loading ? (
+                        <p className="no-orders-text">Loading...</p>
                     ) : (
-                        <p>Loading...</p>
+                        orderData.length === 0 ? (
+                            <p className="no-orders-text">No orders to review!</p>  // Show this if orderData is empty
+                        ) : (
+                            <OrderReview techData={techData} TempDatabaseData={orderData} />
+                        )
                     )}
                 </div>
             </div>
@@ -49,4 +56,3 @@ const SubmitOrder = () => {
 };
 
 export default SubmitOrder;
-

@@ -63,7 +63,7 @@ export const fetchTempOrdersData = async () => {
                 : new Date(); // Default to current date if not present
             const weight = order.Weight || 0;
             const location = order.Location || "Unknown";
-            const orderNumber = order.ID || "Unknown";
+            const orderNumber = order.OrderID || "Unknown";
             const skids = order.Skids || 1/24;
             const techName = order.TechName || "Unknown";
             const waybill = order.Waybill || "Unknown";
