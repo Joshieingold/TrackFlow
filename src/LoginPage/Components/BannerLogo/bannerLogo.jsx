@@ -1,4 +1,4 @@
-import Logo from '../../assets/logo.png';
+import Logo from '../../../assets/logo.png';
 import './bannerLogo.css';
 import React from 'react';
 export const BannerLogo = () => {
