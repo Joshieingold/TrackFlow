@@ -14,6 +14,7 @@
         [x] Need to make a footer
 
 # Fixes:
-[ ] Devices do not get manually pushed properly at all
-[ ] Tech name does not get manually pushed properly
-[ ] Need to center the remove button in order review.
+[x] Devices do not get manually pushed properly at all.
+[x] Tech name does not get manually pushed properly.
+[x] Need to center the remove button in order review.
+[ ] Dates dont get recieved properly in the temp database.

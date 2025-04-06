@@ -10,7 +10,7 @@ export const ManualPush = ({ techData = [] }) => { // ✅ Default to empty array
         Location: "",
         OrderID: "",
         techname: "",
-        waybill: "",
+        Waybill: "",
         Devices: [{ name: "", quantity: "" }],
     };
 
@@ -100,21 +100,36 @@ export const ManualPush = ({ techData = [] }) => { // ✅ Default to empty array
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         try {
-            // Push to Firestore
-            const docRef = await addDoc(collection(db, "TempDelivery"), {
-                ...formData,
+            // Transform Devices array into a map
+            const deviceMap = (formData.Devices ?? []).reduce((acc, { name, quantity }) => {
+                if (!name || !quantity) return acc;
+                acc[name] = Number(quantity); // Ensure quantity is a number
+                return acc;
+            }, {});
+    
+            // Prepare final form data with correct keys
+            const formattedData = {
+                TechName: formData.techname,
+                Location: formData.Location,
+                Waybill: formData.Waybill,
+                DateCompleted: formData.DateCompleted,
+                OrderID: formData.OrderID,
+                Boxes: formData.Boxes,
                 Skids: skids,
-                timestamp: new Date(),
-            });
-
+                Devices: deviceMap,
+            };
+    
+            // Push to Firestore
+            const docRef = await addDoc(collection(db, "TempDelivery"), formattedData);
+    
             console.log("Form Submitted and Document added with ID:", docRef.id);
-
+    
             // Reset form after submission
             setFormData(initialFormData);
             setSkids(0);
-
+    
         } catch (error) {
             console.error("Error adding document:", error);
         }
@@ -128,7 +143,7 @@ export const ManualPush = ({ techData = [] }) => { // ✅ Default to empty array
                     <input
                         list="tech-options"
                         type="text"
-                        name="techname"
+                        name="TechName"
                         value={formData.techname}
                         onChange={handleTechChange}
                         className="input-field"
@@ -142,7 +157,7 @@ export const ManualPush = ({ techData = [] }) => { // ✅ Default to empty array
             </div>
 
             {[{ label: "Location", name: "Location", type: "text" },
-              { label: "Waybill", name: "waybill", type: "text" },
+              { label: "Waybill", name: "Waybill", type: "text" },
               { label: "Date Completed", name: "DateCompleted", type: "date" },
               { label: "Order ID", name: "OrderID", type: "text" },
               { label: "Boxes", name: "Boxes", type: "number" }].map(({ label, name, type }) => (

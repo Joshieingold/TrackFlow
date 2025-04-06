@@ -188,7 +188,7 @@ export const ReviewCard = ({
             </div>
 
             <div className="button-container">
-                <button className="remove-button" onClick={handleRemove}>Remove</button>
+                <button className="submit-button" onClick={handleRemove}>Remove</button>
                 <button className="submit-button" onClick={handleSend}>Submit Order</button>
             </div>
         </div>
