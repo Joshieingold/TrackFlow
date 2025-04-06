@@ -69,3 +69,8 @@ input {
         transition: 0.6s;
     }
 }
+.text-container {
+
+    height: 20%;
+    margin-top: 2rem;
+}

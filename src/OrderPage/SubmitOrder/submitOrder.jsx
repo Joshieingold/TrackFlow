@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import "./submitOrder.css";
 import OrderReview from "./Components/OrderReview/orderReview";
 import { fetchTechData, fetchTempOrdersData } from "../../GeneralComponents/Database/databaseFunctions";
+import { Footer } from "../../GeneralComponents/Footer/footer";
 
 const SubmitOrder = () => {
     const [techData, setTechData] = useState(null);

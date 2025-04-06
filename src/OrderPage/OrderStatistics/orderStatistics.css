@@ -62,3 +62,30 @@
     align-items: center;
     display: flex;
 }
+.date-filter-section {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-filter-section label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 15px;
+  color: #333;
+}
+.date-filter-section input[type="date"] {
+  border-radius: 0.2rem;
+  border: 1px solid #4e4e4e;
+  font-size: 1rem;
+  width: 100px; /* Adjust the width as needed */
+}
+.filter-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}

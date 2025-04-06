@@ -8,6 +8,7 @@
             [ ] Have send add the data to the real database.
             [ ] Have auto fill for devices and technician alongside address
         [ ] Have the Manual Push Component Work with auto fill.  
+        [x] Have the stats be filterable by dates.
     # Overall:
         [ ] Need to make the color scheme consistent.
         [x] Need to make a footer

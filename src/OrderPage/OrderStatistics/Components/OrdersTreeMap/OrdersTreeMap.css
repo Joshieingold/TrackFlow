@@ -3,10 +3,10 @@
   display: flex;
   justify-content: space-around; /* Position treemap on the left and stats on the right */
   padding: 2%;
-  height: 90%;
+  height: 100%;
   flex-wrap: wrap; /* Allow wrapping in case the screen is smaller */
   gap: 20px; /* Add gap between tree and stats */
-  align-items: flex-start; /* Align the items to the top */
+  align-items: center; /* Align the items to the top */
 }
 
 /* The treemap container */
@@ -23,7 +23,7 @@
 .bubble-container-stats {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   height: 100%;
   width: 300px; /* Fixed width for the stats container */
   padding: 15px;
@@ -40,7 +40,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   margin-bottom: 15px; /* Add space between each bubble */
-  height: auto; /* Let the height adjust to content */
+  height: 20%; /* Let the height adjust to content */
 }
 
 /* Heading in each bubble */

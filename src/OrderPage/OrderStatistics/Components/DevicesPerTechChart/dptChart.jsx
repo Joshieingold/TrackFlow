@@ -15,6 +15,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, ChartTooltip, Le
 const DptChart = ({ data }) => {
   const [chartData, setChartData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [dateFilter, setDateFilter] = useState({ start: "", end: "" });
   const [filters, setFilters] = useState({
     saintJohn: true,
     moncton: true,
@@ -29,9 +30,24 @@ const DptChart = ({ data }) => {
       return;
     }
 
+    let filteredData = [...data];
+
+    // Filter by date range
+    if (dateFilter.start || dateFilter.end) {
+      filteredData = filteredData.filter((item) => {
+        const itemDate = new Date(item.Date); // Make sure `item.Date` exists and is valid
+        const startDate = dateFilter.start ? new Date(dateFilter.start) : null;
+        const endDate = dateFilter.end ? new Date(dateFilter.end) : null;
+
+        if (startDate && itemDate < startDate) return false;
+        if (endDate && itemDate > endDate) return false;
+        return true;
+      });
+    }
+
     let techDevices = {};
 
-    data.forEach((item) => {
+    filteredData.forEach((item) => {
       const techName = item.Technician || "Unknown";
       const location = item.Location || "Unknown";
       const devices = item.Devices || {};
@@ -57,12 +73,13 @@ const DptChart = ({ data }) => {
             (filters.moncton && location.includes("Moncton")) ||
             (filters.fredericton && location.includes("Fredericton")) ||
             (filters.misc &&
-              !["Saint John", "Moncton", "Fredericton"].some((city) => location.includes(city)))
+              !["Saint John", "Moncton", "Fredericton"].some((city) =>
+                location.includes(city)
+              ))
           );
         })
         .reduce((acc, [techName, details]) => {
           acc[techName] = details.totalDevices;
-            console.log(acc)
           return acc;
         }, {});
 
@@ -81,7 +98,7 @@ const DptChart = ({ data }) => {
     }
 
     setLoading(false);
-  }, [data, filters]);
+  }, [data, filters, dateFilter]);
 
   const handleFilterChange = (e) => {
     const { name, checked } = e.target;
@@ -113,26 +130,52 @@ const DptChart = ({ data }) => {
 
   return (
     <div className="chart-container">
-      <h2 className="title-text">Total Devices Received</h2>
-  
-      {/* Checkbox Filters */}
+      <h2 className="title-text">Devices Received</h2>
+
+      {/* Date Filter Section */}
       <div className="filter-section">
-        {["saintJohn", "moncton", "fredericton", "misc"].map((filter) => (
-          <label key={filter} className="Checkbox-Text">
+        <div className="date-filter-section">
+          <label>
+            Start Date:
             <input
-              type="checkbox"
-              name={filter}
-              checked={filters[filter]}
-              onChange={handleFilterChange}
+              type="date"
+              value={dateFilter.start}
+              onChange={(e) =>
+                setDateFilter((prev) => ({ ...prev, start: e.target.value }))
+              }
             />
-            {filter === "misc" 
-              ? "Purolator" 
-              : filter
-                  .replace(/([A-Z])/g, " $1")  // Add a space before capital letters
-                  .replace(/^./, str => str.toUpperCase()) // Capitalize the first letter
-            }
           </label>
-        ))}
+          <label>
+            End Date:
+            <input
+              type="date"
+              value={dateFilter.end}
+              onChange={(e) =>
+                setDateFilter((prev) => ({ ...prev, end: e.target.value }))
+              }
+            />
+          </label>
+        </div>
+
+        {/* Checkbox Filters */}
+        <div className="filter-section">
+          {["saintJohn", "moncton", "fredericton", "misc"].map((filter) => (
+            <label key={filter} className="Checkbox-Text">
+              <input
+                type="checkbox"
+                name={filter}
+                checked={filters[filter]}
+                onChange={handleFilterChange}
+              />
+              {filter === "misc"
+                ? "Purolator"
+                : filter
+                    .replace(/([A-Z])/g, " $1")
+                    .replace(/^./, (str) => str.toUpperCase())}
+            </label>
+          ))}
+        </div>
+      
       </div>
 
       {loading ? <p>Loading...</p> : chartData && <Bar data={chartData} options={options} />}
