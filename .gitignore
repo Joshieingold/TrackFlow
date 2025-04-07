@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 src/GeneralComponents/Database/firebase.jsx
+
+# Local Netlify folder
+.netlify
