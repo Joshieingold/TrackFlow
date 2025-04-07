@@ -12,9 +12,11 @@
     # Overall:
         [ ] Need to make the color scheme consistent.
         [x] Need to make a footer
+        [ ] Make website require authentication.
 
 # Fixes:
 [x] Devices do not get manually pushed properly at all.
 [x] Tech name does not get manually pushed properly.
 [x] Need to center the remove button in order review.
 [ ] Dates dont get recieved properly in the temp database.
+[ ] Clean up code

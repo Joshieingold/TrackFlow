@@ -7,22 +7,60 @@ import SubmitOrder from './OrderPage/SubmitOrder/submitOrder.jsx';
 import "./GeneralComponents/General.css";
 import OrderHistory from './OrderPage/OrderHistory/orderHistory.jsx';
 import { LoginPage } from './LoginPage/loginpage.jsx';
+import RequireAuth from './GeneralComponents/RequireAuth/requireAuth.jsx';
+import Logout from './LogoutPage/logOut.jsx';
+
 function App() {
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<LoginPage/>} />
-          <Route path="/Home" element={<HomePage/>} />
-          <Route path="/OrderStatistics" element={<OrderStatisticsPage/>} />
-          <Route path="/SubmitOrder" element={<SubmitOrder/>} />
-          <Route path="/ContractorStatistics" element={"ContractorStatisticsPage"} />
-          <Route path="/ContractorOverview" element={"ContractorOverviewPage"} />
-          <Route path="/OrderHistory" element={<OrderHistory/>}/>
-        </Routes>
-      </Router> 
-    </>
-  )
+    <Router> {/* ✅ This is the missing piece */}
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/Home" element =
+          {
+            <RequireAuth>
+              <HomePage />
+            </RequireAuth>
+          } 
+        />
+        <Route path="/Logout" element =
+          {
+            <RequireAuth>
+              {<Logout/>}
+            </RequireAuth>
+          }/>
+        <Route path="/OrderStatistics" element =
+          {
+            <RequireAuth>
+              <OrderStatisticsPage />
+            </RequireAuth>
+          }/>
+        <Route path="/SubmitOrder" element =
+          {
+            <RequireAuth>
+              <SubmitOrder />
+            </RequireAuth>
+          }/>
+        <Route path="/OrderHistory" element =
+          {
+            <RequireAuth>
+              <OrderHistory />
+            </RequireAuth>
+          }/>
+        <Route path="/ContractorStatistics" element = 
+          {
+            <RequireAuth>
+              {"ContractorStatisticsPage"}
+            </RequireAuth>
+          }/>
+        <Route path="/ContractorOverview" element = 
+          {
+            <RequireAuth>
+              {"ContractorOverviewPage"}
+            </RequireAuth>
+          }/>
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

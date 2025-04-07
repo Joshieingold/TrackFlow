@@ -7,7 +7,7 @@ export const FullLogo = () => {
       <div className="icon-container">
         <img className="icon" src={Logo} alt="Logo" />
       </div>
-      <h2 className="logo-text">TrackFlow</h2>
+      <h2 className="logo-text">OrderLink</h2>
     </div>
   );
 }

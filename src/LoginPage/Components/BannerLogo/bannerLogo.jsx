@@ -7,7 +7,7 @@ export const BannerLogo = () => {
       <div className="icon-container-banner">
         <img className="icon-banner" src={Logo} alt="Logo" />
       </div>
-      <h2 className="logo-text-banner">TrackFlow</h2>
+      <h2 className="logo-text-banner">OrderLink</h2>
     </div>
   );
 }

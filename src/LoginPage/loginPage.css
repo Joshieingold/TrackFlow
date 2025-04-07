@@ -10,6 +10,7 @@
     align-items: center;
     margin-bottom: 10vh;
     padding: 0;
+    min-width: 400px;
 }
 .login-page {
     display: flex;
@@ -72,5 +73,18 @@ input {
 .text-container {
 
     height: 20%;
-    margin-top: 2rem;
+    width: 80%;
+}
+.remember-me-container   {
+    display: flex;
+    align-items: right;
+    justify-content: left; 
+    font-size: 1.1rem;
+    width: 80%;
+}
+.error {
+    color: red;
+    font-size: 0.9rem;
+    text-align: center;
+    width: 80%;
 }

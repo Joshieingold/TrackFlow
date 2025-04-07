@@ -28,6 +28,7 @@ export const ReviewCard = ({
     });
 
     const handleChange = (e) => {
+        console.log(editableOrder);
         const { name, value } = e.target;
         setEditableOrder((prev) => ({
             ...prev,
@@ -51,15 +52,16 @@ export const ReviewCard = ({
             Technician: editableOrder.name,
             Location: editableOrder.location,
             Waybill: editableOrder.waybill,
-            Date: new Date(editableOrder.date),
+            DateCompleted: new Date(editableOrder.date),
             Devices: editableOrder.devices,
             Boxes: Number(editableOrder.boxes),
             Skids: Number(editableOrder.skids),
             Weight: 0,
+            
         };
     
         try {
-           
+            
     
             // Query the TempDelivery collection to find the document with the matching orderId
             const q = query(collection(db, "TempDelivery"), where("OrderID", "==", editableOrder.orderId));

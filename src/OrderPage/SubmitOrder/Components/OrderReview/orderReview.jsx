@@ -22,6 +22,7 @@ const OrderReview = ({ TempDatabaseData, techData }) => {
 
         // Set orders from TempDatabaseData
         setOrders(TempDatabaseData);
+        console.log("TempDatabaseData", TempDatabaseData);
         
     }, [TempDatabaseData, techData]);
 
@@ -36,6 +37,7 @@ const OrderReview = ({ TempDatabaseData, techData }) => {
     return (
         <div className="order-review-container">
             {orders.map((order, index) => (
+
                 <ReviewCard
                     key={index}
                     orderId={order.OrderID}
@@ -45,7 +47,7 @@ const OrderReview = ({ TempDatabaseData, techData }) => {
                     devices={order.Devices || {}}
                     boxes={order.Boxes || 0}
                     skids={order.Skids || 0}
-                    date={order.date|| Date()}
+                    date={order.DateCompleted|| Date()}
                     onEdit={() => {
                         const updatedOrder = { ...order, name: prompt("Edit Name", order.Technician) || order.Technician };
                         handleEdit(index, updatedOrder);
