@@ -64,7 +64,7 @@ export const ReviewCard = ({
             
     
             // Query the TempDelivery collection to find the document with the matching orderId
-            const q = query(collection(db, "TempDelivery"), where("OrderID", "==", editableOrder.orderId));
+            const q = query(collection(db, "TempOrders"), where("OrderID", "==", editableOrder.orderId));
             const querySnapshot = await getDocs(q);
     
             if (!querySnapshot.empty) {
@@ -94,7 +94,7 @@ export const ReviewCard = ({
         try {
             // Query to find the document by orderId
             const q = query(
-                collection(db, "TempDelivery"), // Collection where orders are stored
+                collection(db, "TempOrders"), // Collection where orders are stored
                 where("OrderID", "==", editableOrder.orderId) // Searching by orderId field
             );
 
@@ -103,7 +103,7 @@ export const ReviewCard = ({
             if (!querySnapshot.empty) {
                 // If document is found, delete it
                 querySnapshot.forEach(async (docSnap) => {
-                    await deleteDoc(doc(db, "TempDelivery", docSnap.id)); // Using docSnap.id to delete the document
+                    await deleteDoc(doc(db, "TempOrders", docSnap.id)); // Using docSnap.id to delete the document
                     console.log(`Deleted document with orderId ${editableOrder.orderId}`);
                 });
 

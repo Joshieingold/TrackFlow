@@ -47,7 +47,7 @@ export const fetchOrdersData = async () => {
 };
 export const fetchTempOrdersData = async () => {
     try {
-        const deliveryRef = collection(db, "TempDelivery");
+        const deliveryRef = collection(db, "TempOrders");
         const querySnapshot = await getDocs(query(deliveryRef));
 
         if (querySnapshot.empty) {

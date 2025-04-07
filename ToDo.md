@@ -12,15 +12,20 @@
 - [x] Have the stats be filterable by dates.
 - [x] Make Order History filterable by text names.
 - [ ] Make other filter in order history work.
+- [ ] Allow user to chick on order in order table and it will show the full order with devices.
+- [ ] Make it so the user can just write in fractions for skids. Or its updated by boxes
+# Contractor Overview Page:
+- [ ] Start it
+- [x] Add coming soon.
 
 # Overall:
 - [x] Need to make the color scheme consistent.
 - [x] Need to make a footer
 - [x] Make website require authentication.
-- [ ] Create Netlify Deployment.
-# Contractor Overview Page:
-- [ ] Start it
-- [x] Add coming soon.
+- [x] Create Netlify Deployment.
+- [ ] Make clcking logo send you home.
+
+
 
 # Fixes:
 - [x] Devices do not get manually pushed properly at all.
