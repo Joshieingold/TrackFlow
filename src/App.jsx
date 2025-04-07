@@ -9,6 +9,7 @@ import OrderHistory from './OrderPage/OrderHistory/orderHistory.jsx';
 import { LoginPage } from './LoginPage/loginpage.jsx';
 import RequireAuth from './GeneralComponents/RequireAuth/requireAuth.jsx';
 import Logout from './LogoutPage/logOut.jsx';
+import { ComingSoon } from './GeneralComponents/ComingSoon/comingSoon.jsx';
 
 function App() {
   return (
@@ -55,7 +56,7 @@ function App() {
         <Route path="/ContractorOverview" element = 
           {
             <RequireAuth>
-              {"ContractorOverviewPage"}
+              {<ComingSoon/>}
             </RequireAuth>
           }/>
       </Routes>

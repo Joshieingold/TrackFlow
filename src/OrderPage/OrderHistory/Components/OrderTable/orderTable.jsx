@@ -7,6 +7,7 @@ export const OrderTable = ({ data }) => {
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
   const [locationFilter, setLocationFilter] = useState("All");
+  const [technicianFilter, setTechnicianFilter] = useState("");
 
   // Ensure data is an array before running filter operations
   const filteredData = (data || [])
@@ -22,7 +23,12 @@ export const OrderTable = ({ data }) => {
       );
     })
     .filter(
-      (item) => locationFilter === "All" || (item.Location).includes(locationFilter) 
+      (item) =>
+        locationFilter === "All" || item.Location.includes(locationFilter)
+    )
+    .filter(
+      (item) =>
+        !technicianFilter || item.Technician.toLowerCase().includes(technicianFilter.toLowerCase())
     );
 
   const columns = [
@@ -52,13 +58,31 @@ export const OrderTable = ({ data }) => {
       <div className="search-customization-container">
         <div className="filter-option">
           <p>Search Waybill:</p>
-          <input type="text" placeholder="Search Waybill..." value={filterText} onChange={(e) => setFilterText(e.target.value)} className="text-input" />
+          <input
+            type="text"
+            placeholder="Search Waybill..."
+            value={filterText}
+            onChange={(e) => setFilterText(e.target.value)}
+            className="input-field"
+          />
         </div>
-
+        <div className="filter-option">
+          <p>Search Technician:</p>
+          <input
+            type="text"
+            placeholder="Technician Name.."
+            value={technicianFilter}
+            onChange={(e) => setTechnicianFilter(e.target.value)}
+            className="input-field"
+          />
+        </div>
         <div className="filter-option">
           <p>Filter by Location:</p>
           <select
-            value={locationFilter} onChange={(e) => setLocationFilter(e.target.value)} className="text-input" >
+            value={locationFilter}
+            onChange={(e) => setLocationFilter(e.target.value)}
+            className="input-field"
+          >
             <option value="All">All</option>
             <option value="Saint John">Saint John</option>
             <option value="Moncton">Moncton</option>
@@ -67,20 +91,39 @@ export const OrderTable = ({ data }) => {
           </select>
         </div>
 
-        <div className="date-container"> 
+        
+
+        <div className="date-container">
           <div className="filter-option">
             <p>From Date:</p>
-            <input type="date" value={fromDate} onChange={(e) => setFromDate(e.target.value)} />
+            <input
+              type="date"
+              value={fromDate}
+              onChange={(e) => setFromDate(e.target.value)}
+            className="input-field"
+            />
           </div>
           <div className="filter-option">
             <p>To Date:</p>
-            <input type="date" value={toDate} onChange={(e) => setToDate(e.target.value)} />
+            <input
+              type="date"
+              value={toDate}
+              onChange={(e) => setToDate(e.target.value)}
+              className="input-field"
+            />
           </div>
         </div>
       </div>
 
-      <div className="data-table" >
-        <DataTable columns={columns} data={filteredData} pagination highlightOnHover striped className="custom-data-table" />
+      <div className="data-table">
+        <DataTable
+          columns={columns}
+          data={filteredData}
+          pagination
+          highlightOnHover
+          striped
+          className="custom-data-table"
+        />
       </div>
     </div>
   );

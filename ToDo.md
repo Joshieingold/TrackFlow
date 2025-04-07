@@ -9,11 +9,15 @@
             [ ] Have auto fill for devices and technician alongside address
         [ ] Have the Manual Push Component Work with auto fill.  
         [x] Have the stats be filterable by dates.
+        [x] Make Order History filterable by text names.
+        [ ] Make other filter in order history work.
     # Overall:
-        [ ] Need to make the color scheme consistent.
+        [x] Need to make the color scheme consistent.
         [x] Need to make a footer
-        [ ] Make website require authentication.
-
+        [x] Make website require authentication.
+    # Contractor Overview Page:
+        [ ] Start it
+        [x] Add coming soon.
 # Fixes:
 [x] Devices do not get manually pushed properly at all.
 [x] Tech name does not get manually pushed properly.
