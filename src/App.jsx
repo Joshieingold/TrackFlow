@@ -6,9 +6,9 @@ import OrderStatisticsPage from './OrderPage/OrderStatistics/orderStatistics.jsx
 import SubmitOrder from './OrderPage/SubmitOrder/submitOrder.jsx';
 import "./GeneralComponents/General.css";
 import OrderHistory from './OrderPage/OrderHistory/orderHistory.jsx';
-import { LoginPage } from './LoginPage/loginpage.jsx';
+import { LoginPage } from './LoginPage/loginPage.jsx';
 import RequireAuth from './GeneralComponents/RequireAuth/requireAuth.jsx';
-import Logout from './LogoutPage/logOut.jsx';
+import Logout from './LogoutPage/logout.jsx';
 import { ComingSoon } from './GeneralComponents/ComingSoon/comingSoon.jsx';
 
 function App() {

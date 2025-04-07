@@ -1,6 +1,6 @@
 import { Footer } from "../GeneralComponents/Footer/footer";
 import { BannerLogo } from "./Components/BannerLogo/bannerLogo";
-import "./loginpage.css";
+import "./loginPage.css";
 import { useState, useEffect } from "react";
 import { auth } from "../GeneralComponents/Database/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";

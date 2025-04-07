@@ -17,7 +17,7 @@
 - [x] Need to make the color scheme consistent.
 - [x] Need to make a footer
 - [x] Make website require authentication.
-
+- [ ] Create Netlify Deployment.
 # Contractor Overview Page:
 - [ ] Start it
 - [x] Add coming soon.
